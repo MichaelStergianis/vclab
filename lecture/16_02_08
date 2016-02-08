@@ -1,0 +1,19 @@
+real processes can be approximated with linear models
+
+given training dataset of n instances with {x, y} input output pairs.
+x is a vector of d dimensions
+
+given inputs and outputs we can train a system to find a linear model
+
+1. training {xi, yi} -> learn -> parameters of a linear model -> y_hat
+
+2, predicition x_n+1 -> predict -> y_hat_n+1
+
+y_hat(xi) = theta1 + xi*theta2
+
+J(theta) = sum( (yi - y_hati)^2, 1, n) = sum( (y - theta1 - xi*theta2)^2, 1, n) 
+
+Linear Prediction
+	yi_hat = sum(xi_j * theta_j, 1, d)
+
+
