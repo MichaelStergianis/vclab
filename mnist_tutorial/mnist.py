@@ -1,6 +1,6 @@
+#! /usr/bin/env python3
 import tensorflow as tf
 import numpy as np
-import cv2
 
 from tensorflow.examples.tutorials.mnist import input_data
 
@@ -100,7 +100,7 @@ correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # create a session and run
-session = tf.Session()
+session = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 session.run(tf.initialize_all_variables())
 
 # run the training step 20000 times
