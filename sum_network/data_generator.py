@@ -2,11 +2,15 @@
 import numpy
 import random
 import time
+import os
+
+if not os.path.isdir("./data"):
+    os.mkdir("./data")
 
 random.seed(time.clock())
 
 # create training data
-with open("ran_nums_train.csv", "w") as f:
+with open("data/ran_nums_train.csv", "w") as f:
     for i in range(55000):
         sum = 0
         for i in range(4):
@@ -20,7 +24,7 @@ with open("ran_nums_train.csv", "w") as f:
         f.write("\n")
 
 # create testing data
-with open("ran_nums_test.csv", "w") as f:
+with open("data/ran_nums_test.csv", "w") as f:
     for i in range(10000):
         sum = 0
         for i in range(4):
