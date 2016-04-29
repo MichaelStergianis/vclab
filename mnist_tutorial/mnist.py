@@ -100,12 +100,12 @@ correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 # create a session and run
-session = tf.Session(config=tf.ConfigProto(log_device_placement=True))
-session.run(tf.initialize_all_variables())
+sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+sess.run(tf.initialize_all_variables())
 
 # run the training step 20000 times
 for i in range(20000):
-    with session.as_default(): 
+    with sess.as_default(): 
         batch_xs, batch_ys = mnist.train.next_batch(50)
         if i % 100 == 0:
             train_accuracy = accuracy.eval(feed_dict={x:batch_xs, y_:batch_ys, keep_prob: 1.0})
@@ -113,5 +113,5 @@ for i in range(20000):
         train_step.run(feed_dict={x: batch_xs, y_: batch_ys, keep_prob: 0.5})
 
 
-print("test accuracy %g"%accuracy.eval(session=session, feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
-session.close()
+print("test accuracy %g"%accuracy.eval(session=sess, feed_dict={x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
+sess.close()

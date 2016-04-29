@@ -4,3 +4,6 @@ mnist is chosen as the starting point of tensor flow for a few reasons:
 	2. It is simple, 28 x 28 images. However, this quickly breaks down into a 
 		 784-dimensional space. Illustrating to someone learning just how complex
 		 machine learning is.
+
+naive mnist training does not improve with 10x training from 1000, 1000 -> 10000
+
