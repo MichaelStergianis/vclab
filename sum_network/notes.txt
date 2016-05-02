@@ -13,3 +13,7 @@ How to tackle the problem of finding the operation that connects our outputs to 
 	We are looking for an operation that describes their interactions
 		Guesses such as elem[0] * elem[1] + elem[2] / elem[3] would be incorrect
 			but how does a computer know this?
+
+
+Doing a simple softmax on the training data did not work blindly following the mnist tutorial.
+	Quite frankly this was naive
