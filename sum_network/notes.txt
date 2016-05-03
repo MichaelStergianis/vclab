@@ -17,3 +17,6 @@ How to tackle the problem of finding the operation that connects our outputs to 
 
 Doing a simple softmax on the training data did not work blindly following the mnist tutorial.
 	Quite frankly this was naive
+	- Was able to get about 0.2% -> 0.4% accuracy this way.
+	- next attempt is to break the inputs into their bits to examine which bits make which outputs more likely
+
