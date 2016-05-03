@@ -31,14 +31,13 @@ class DataImport:
     _bitwise
 
     Returns a list of the binary values of the number starting with the least
-    significant bit. For now it is only useable for values up to 255, but that
-    is intentional given our dataset
+    significant bit.
 
     number -- the number to be put into bitwise fashion
     """
     def _bitwise(self, number):
         ret_list = []
-        for i in range(0, 8):
+        for i in range(0, 10):
             temp = number & 2**i
             temp = temp >>i
             ret_list.append(float(temp))
@@ -57,10 +56,14 @@ class DataImport:
                     for j in self._bitwise(int(i)):
                         num_list.append(j)
                 array.append(num_list)
-                label = np.zeros((1021,), dtype=np.float32)
-                label[ (int(line[-1]) - 1) ] = 1.0
+                label = []
+                for i in self._bitwise(int(line[-1])):
+                    label.append(i)
                 lbls.append(label)
-            self.labels = np.array(lbls)
+#                label = np.zeros((1021,), dtype=np.float32)
+#                label[ (int(line[-1]) - 1) ] = 1.0
+#                lbls.append(label)
+            self.labels = np.array(lbls, dtype=np.float32)
             self.arrays = np.array(array, dtype=np.float32)
 
 
