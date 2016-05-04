@@ -35,9 +35,9 @@ class DataImport:
 
     number -- the number to be put into bitwise fashion
     """
-    def _bitwise(self, number):
+    def _bitwise(self, number, num_bits):
         ret_list = []
-        for i in range(0, 10):
+        for i in range(0, num_bits):
             temp = number & 2**i
             temp = temp >>i
             ret_list.append(float(temp))
@@ -53,11 +53,11 @@ class DataImport:
                 assert len(line) == 5
                 num_list = []
                 for i in line[:-1]:
-                    for j in self._bitwise(int(i)):
+                    for j in self._bitwise(int(i), 8):
                         num_list.append(j)
                 array.append(num_list)
                 label = []
-                for i in self._bitwise(int(line[-1])):
+                for i in self._bitwise(int(line[-1]), 10):
                     label.append(i)
                 lbls.append(label)
 #                label = np.zeros((1021,), dtype=np.float32)
