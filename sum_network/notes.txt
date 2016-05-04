@@ -20,3 +20,5 @@ Doing a simple softmax on the training data did not work blindly following the m
 	- Was able to get about 0.2% -> 0.4% accuracy this way.
 	- next attempt is to break the inputs into their bits to examine which bits make which outputs more likely
 
+There is now a working sum calculator in the way of a simple matrix multiplication where it figures out
+	the correct weights. Essentially it can get within ~.009 of the correct answer with a weighted sum and an offset
