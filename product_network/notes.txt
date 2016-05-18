@@ -1,0 +1,24 @@
+Actually generating the data and taking random samplings from the data is trivial.
+	All of that functionality is contained in DataGenerator and DataImport
+If DataImport does not detect that data has been generated, simply by checking if the data directory exists
+	it calls DataGenerator and creates 55000 training points, and 10000 testing points.
+	Each of these points consist of 
+			- 2x2 matrix containing random integers for each of the values
+			- a label that is the sum of the four values
+
+
+How to tackle the problem of finding the operation that connects our outputs to our inputs
+	How do we know what inputs are relevant?
+	How can we go through the process of seeing what elements are being combined in what ways?
+	We are looking for an operation that describes their interactions
+		Guesses such as elem[0] * elem[1] + elem[2] / elem[3] would be incorrect
+			but how does a computer know this?
+
+
+Doing a simple softmax on the training data did not work blindly following the mnist tutorial.
+	Quite frankly this was naive
+	- Was able to get about 0.2% -> 0.4% accuracy this way.
+	- next attempt is to break the inputs into their bits to examine which bits make which outputs more likely
+
+There is now a working sum calculator in the way of a simple matrix multiplication where it figures out
+	the correct weights. Essentially it can get within ~.009 of the correct answer with a weighted sum and an offset
