@@ -38,7 +38,7 @@ def main(trainNum, testNum):
     random.seed(time.clock())
 
     weights = [1,1,1,1]
-    offset = 12
+    offset = 0
     
     # create training data
     with open("data/ran_nums_train.csv", "w") as f:

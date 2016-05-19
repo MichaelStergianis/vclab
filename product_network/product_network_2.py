@@ -39,33 +39,62 @@ y_ = tf.placeholder(tf.float32, [None, 1])
 #
 #y = tf.matmul(x, W) + b
 
-layer_1 = tf.contrib.layers.fully_connected(x, 64, activation_fn=tf.tanh)
+layer_1 = tf.contrib.layers.fully_connected(x, 256, activation_fn=tf.tanh)
 
-layer_2 = tf.contrib.layers.fully_connected(layer_1, 64, activation_fn=tf.tanh)
+layer_2 = tf.contrib.layers.fully_connected(layer_1, 256, activation_fn=tf.tanh)
 
-layer_3 = tf.contrib.layers.fully_connected(layer_2, 64, activation_fn=tf.nn.relu)
-
-#layer_4 = tf.contrib.layers.fully_connected(layer_3, 512, activation_fn=tf.nn.relu)
+layer_3 = tf.contrib.layers.fully_connected(layer_2, 256, activation_fn=tf.nn.relu)
+#
+#layer_4 = tf.contrib.layers.fully_connected(layer_3, 1024, activation_fn=tf.nn.relu)
+#
+#layer_5 = tf.contrib.layers.fully_connected(layer_4, 1024, activation_fn=tf.nn.relu)
 
 y = tf.contrib.layers.fully_connected(layer_3, 1, activation_fn=tf.nn.relu)
 
-cross_entropy = tf.mul(tf.square(tf.sub(y, y_)), 0.5)
+cross_entropy = (tf.square(tf.sub(y, y_)))
 
-train_step = tf.train.AdamOptimizer(1e-3).minimize(cross_entropy)
+train_step = tf.train.AdamOptimizer().minimize(cross_entropy)
+
+train_step_2 = tf.train.AdadeltaOptimizer().minimize(cross_entropy)
 
 correct_prediction = tf.equal(y, y_)
 accuracy = tf.abs(tf.sub(y, y_))
+reduced_accuracy_max = tf.reduce_max(tf.abs(tf.sub(y, y_)))
+reduced_accuracy_mean = tf.reduce_mean(tf.abs(tf.sub(y, y_)))
+reduced_accuracy_min = tf.reduce_min(tf.abs(tf.sub(y, y_)))
+
 
 sess = tf.Session()
 sess.run(tf.initialize_all_variables())
 
-for i in range(1000000):
+i = 0
+while True:
     batch_x, batch_y = training_data.next_batch(100)
+    i += 1
     if i %100 == 0:
-        train_accuracy = sess.run(accuracy, feed_dict={x:batch_x, y_:batch_y})
-        print("step %d, training accuracy "%(i), train_accuracy)
+        #train_accuracy = sess.run(accuracy, feed_dict={x:batch_x, y_:batch_y})
+        train_reduced_max = sess.run(reduced_accuracy_max, feed_dict={x:batch_x, y_:batch_y})
+        train_reduced_mean = sess.run(reduced_accuracy_mean, feed_dict={x:batch_x, y_:batch_y})
+        train_reduced_min = sess.run(reduced_accuracy_min, feed_dict={x:batch_x, y_:batch_y})
+        #print("step %d, training accuracy "%(i), train_accuracy)
+        print("step {0:06d}, training accuracy max: {1:05.7f} mean: {2:05.7f} min: {3:05.7f}".format(i, 
+            train_reduced_max, train_reduced_mean, train_reduced_min))
     sess.run(train_step, feed_dict={x: batch_x, y_: batch_y})
 
-print(sess.run(accuracy, feed_dict={x: test_data.arrays, y_: test_data.labels}))
+for i in range(100000):
+    batch_x, batch_y = training_data.next_batch(100)
+    if i %100 == 0:
+        #train_accuracy = sess.run(accuracy, feed_dict={x:batch_x, y_:batch_y})
+        #train_reduced_accuracy = sess.run(reduced_accuracy, feed_dict={x:batch_x, y_:batch_y})
+        train_reduced_max = sess.run(reduced_accuracy_max, feed_dict={x:batch_x, y_:batch_y})
+        train_reduced_mean = sess.run(reduced_accuracy_mean, feed_dict={x:batch_x, y_:batch_y})
+        train_reduced_min = sess.run(reduced_accuracy_min, feed_dict={x:batch_x, y_:batch_y})
+        #print("step %d, training accuracy "%(i), train_accuracy)
+        print("step {0:06d}, training accuracy max: {1:5.7f} mean: {2:5.7f} min: {3:5.7f}".format(i, 
+            train_reduced_max, train_reduced_mean, train_reduced_min))
+    sess.run(train_step, feed_dict={x: batch_x, y_: batch_y})
+
+test_accuracy = sess.run(accuracy, feed_dict={x: test_data.arrays, y_: test_data.labels})
+print("test accuracy", test_accuracy)
 
 sess.close()

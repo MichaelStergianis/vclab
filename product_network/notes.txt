@@ -22,3 +22,11 @@ Doing a simple softmax on the training data did not work blindly following the m
 
 There is now a working sum calculator in the way of a simple matrix multiplication where it figures out
 	the correct weights. Essentially it can get within ~.009 of the correct answer with a weighted sum and an offset
+
+
+
+Wide net 4096 nodes for first layer, tanh neurons
+	1024 relu nodes for second layer
+		by step 30,000 it is at ~ 150 - 200 reduced mean error
+		wide variability in errors at this point, beginning to get more consistent by 
+		40,000
