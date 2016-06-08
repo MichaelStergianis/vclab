@@ -1,0 +1,34 @@
+```
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  
+0 0 W W W W W X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 W W W W W X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 W W W W W X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 W W W W W X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 W W W W W X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 X X X X X X X X X X X X X X X X X X X X X X X X X X X X 0 0  
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0  
+```
